@@ -1,9 +1,9 @@
 # Touch the numbers game
 
-Using a collection of utility functions# Touch the numbers game
+Using a collection of utility functions # Touch the numbers game
 
 Using a collection of utility functions
-
+ 
 # Examples
 
 ```
