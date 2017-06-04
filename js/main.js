@@ -3,33 +3,54 @@
 var gNextNum;
 var gTimePassed;
 var gSecsInterval;
+
 var gMat = [];
-var gState = {size:6} ;  // DELETE when merge
+var gState = {};
+var gBoard;
+var gElGameBoard;
+
 
 function cleanBoard() {
     var tds = document.querySelectorAll('td.clicked');
-    for (var i=0; i<tds.length; i++) {
+    for (var i = 0; i < tds.length; i++) {
         tds[i].classList.remove('clicked');
+    }
+}
+
+function chooseLevel(level) {
+    switch (level) {
+        case level = 'easy':
+            gState.size = 3;
+            break;
+        case level = 'meduim':
+            gState.size = 4;
+            break;
+        case level = 'meduim':
+            gState.size = 6;
+            break;
+        default:
+            break;
     }
 }
 
 function updateNextNum() {
     var elSpanNextNum = document.querySelector('#spanNextNum');
-            console.log('elSpanNextNum', elSpanNextNum);
-            
+    console.log('elSpanNextNum', elSpanNextNum);
+
     elSpanNextNum.innerText = gNextNum;
 }
 function updateTime() {
     var elSpanTimer = document.getElementById('spanTimer');
-            
+
     elSpanTimer.innerText = gTimePassed / 10;
 }
 
 function restartGame() {
     if (gSecsInterval) clearInterval(gSecsInterval);
-    gNextNum    = 1;
-    gTimePassed  = 0;
+    gNextNum = 1;
+    gTimePassed = 0;
     gSecsInterval = undefined;
+    gState.size = setLevel();
     cleanBoard();
     updateNextNum(); 
     gMat = getRandomNumsMatrix(gState.size, gState.size);
@@ -39,32 +60,34 @@ function restartGame() {
 
 
 function cellClicked(elNum) {
-    
+
     if (!gSecsInterval) {
         gSecsInterval = setInterval(function () {
             gTimePassed++;
             // console.log('Second passed!', gSecsPassed);
             updateTime();
-            
-        }, 100)        
+
+        }, 100)
     }
-    
-   
+
     var clickedNum = +elNum.innerText;
     if (gNextNum === clickedNum) {
         elNum.classList.add('clicked');
-        
-        if (gNextNum === 9) {
-        //    console.log('Victory! took you: ', gSecsPassed, ' seconds');
-           alert('Victory! time: ' + gTimePassed/10)
-           clearInterval(gSecsInterval);
-            
+
+        if (gNextNum === Math.pow(gState.size, 2)) {
+            //    console.log('Victory! took you: ', gSecsPassed, ' seconds');
+            setTimeout(function () {
+                alert('Victory! time: ' + gTimePassed / 10)
+            }
+                , 500);
+            clearInterval(gSecsInterval);
+
         } else {
             gNextNum++;
             updateNextNum();
         }
 
     }
-    
+
 }
 
