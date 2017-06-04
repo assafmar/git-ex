@@ -29,7 +29,7 @@ function getRandomNumsMatrix(rows, cols) {
     return mat;
 
 function isPrimeNum(num){
-    console.log("maybe")
+    console.log("maybe it is")
 }
 
 
