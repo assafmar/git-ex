@@ -28,7 +28,9 @@ function getRandomNumsMatrix(rows, cols) {
     console.table(mat);
     return mat;
 
-
+function isPrimeNum(num){
+    console.log("maybe")
+}
 
 
 }
