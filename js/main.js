@@ -3,7 +3,11 @@
 var gNextNum;
 var gTimePassed;
 var gSecsInterval;
-var gState;
+var gState = {};
+var gBoard;
+var gElGameBoard;
+
+gState.size = 3;
 
 function cleanBoard() {
     var tds = document.querySelectorAll('td.clicked');
@@ -15,15 +19,12 @@ function cleanBoard() {
 function chooseLevel(level) {
     switch (level) {
         case level = 'easy':
-            gState.level = 'easy'
             gState.size = 3;
             break;
         case level = 'meduim':
-            gState.level = 'meduim'
             gState.size = 4;
             break;
         case level = 'meduim':
-            gState.level = 'meduim'
             gState.size = 6;
             break;
         default:
@@ -48,6 +49,7 @@ function restartGame() {
     gNextNum = 1;
     gTimePassed = 0;
     gSecsInterval = undefined;
+    gState.size = setLevel();
     cleanBoard();
     updateNextNum();
     updateTime();
@@ -65,14 +67,16 @@ function cellClicked(elNum) {
         }, 100)
     }
 
-
     var clickedNum = +elNum.innerText;
     if (gNextNum === clickedNum) {
         elNum.classList.add('clicked');
 
-        if (gNextNum === 9) {
+        if (gNextNum === Math.pow(gState.size, 2)) {
             //    console.log('Victory! took you: ', gSecsPassed, ' seconds');
-            alert('Victory! time: ' + gTimePassed / 10)
+            setTimeout(function () {
+                alert('Victory! time: ' + gTimePassed / 10)
+            }
+                , 500);
             clearInterval(gSecsInterval);
 
         } else {
