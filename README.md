@@ -1,4 +1,4 @@
-# Asand Inba aaf 
+# Asaf and Inbar
 
 Using a collection of utility functions 
 # Touch the numbers game 
