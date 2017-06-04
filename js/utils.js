@@ -30,14 +30,28 @@ function getRandomNumsMatrix(rows, cols) {
 }
 
 
-
-function isPrimeNum(num){
-    console.log("maybe it is - call Assaf and   Inbar!!!")
-
+function getSelector(i, j) {
+    return '#cell-' + i + '-' + j;
 }
 
-function getRandomColor(){
-    console.log("maybe it is");
+ function renderBoard(board, selectorTbl) {
+    var strHtml = '';
+    board.forEach(function (row, i) {
+        strHtml += '<tr>\n';
+        row.forEach(function (cell, j) {
+            var tdId = 'cell-' + i + '-' + j;
+            strHtml += '\t<td ';
+            strHtml += '< id="' + tdId + '" ';
+            strHtml += 'class="table-cell " ';
+            strHtml += ' onclick="cellClicked(this)">';
+            strHtml += board[i][j];
+            strHtml += '</td>\n';
+        });
+        strHtml += '</tr>\n';
+    });
+    var elTable = document.querySelector(selectorTbl);
+    elTable.innerHTML = strHtml;
 }
+
 
 

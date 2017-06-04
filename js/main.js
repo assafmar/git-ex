@@ -3,6 +3,8 @@
 var gNextNum;
 var gTimePassed;
 var gSecsInterval;
+var gMat = [];
+var gState = {size:6} ;  // DELETE when merge
 
 function cleanBoard() {
     var tds = document.querySelectorAll('td.clicked');
@@ -29,7 +31,9 @@ function restartGame() {
     gTimePassed  = 0;
     gSecsInterval = undefined;
     cleanBoard();
-    updateNextNum();
+    updateNextNum(); 
+    gMat = getRandomNumsMatrix(gState.size, gState.size);
+    renderBoard(gMat,'.game-board');
     updateTime();
 }
 
