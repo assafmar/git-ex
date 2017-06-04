@@ -32,7 +32,7 @@ function getRandomNumsMatrix(rows, cols) {
 
 
 function isPrimeNum(num){
-    console.log("maybe it is - calll lllll  Inbar!!!")
+    console.log("maybe it is - call  Inbar!!!")
 }
 
 function getRandomColor(){
