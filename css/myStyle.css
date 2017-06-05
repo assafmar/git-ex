@@ -1,8 +1,65 @@
+body{
+    padding:10px;
+}
+
+.top-buttons{
+    display:flex;
+    align-items: center;
+    max-width: 50vh;
+
+
+}
+
+.niceButton{
+    margin-left: 18px;
+    background-color: orange;
+    height: 4rem;
+    border-width: 0px;
+    border-radius: 3px;
+    border-color: transparent;
+}
+
+.radio-buttons{
+    display:flex;
+    border-width: 0px;    
+    align-items: center;
+    background-color: lightslategrey;
+    height: 4rem;
+    padding-left: 10px;
+    padding-right: 15px;
+    border-radius: 3px;
+
+
+}
+
+form {
+    margin-bottom: 0em;
+}
+
+.game-board{
+margin-top: 20px;
+width: 50vh;
+height:50vh;
+border: solid 10px  darkgray;
+}
 td {
     padding: 10px;
-    border:1px solid black;
+    /*border: solid 1px black;*/
+}
+
+.table-cell{
+    width: 20px;
+    height:20px;
+    text-align: center;
+    background-color:red;
+    font-size: 1rem;
+    font-family: cursive;
+    border-radius: 5px;
+
 }
 
 .clicked {
-    background-color: gold;   
+animation:spin 0.5s linear ;
+    background-color: gold; 
 }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

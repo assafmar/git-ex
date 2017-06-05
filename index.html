@@ -15,15 +15,20 @@
         <h3 class="bigger meaningful">Next num: <span id="spanNextNum"></span> </h3>
         <h4>Time: <span id="spanTimer"></span> </h4>
     </div>
-        <form action="">
-            <input type="radio" id="introduction" name="level" value="3"> Introduction
-            <input type="radio" id="introduction" name="level" value="4"> Hard
-            <input type="radio" id="professional" name="level" value="6" checked> Professional
+
+    <div class="top-buttons">
+        <form action="" class="radio-buttons">
+            <input type="radio" id="introduction" name="level" value="3" checked> Beginner
+            <input type="radio" id="introduction" name="level" value="4"> Medium
+            <input type="radio" id="professional" name="level" value="6"> Pro!
         </form>
+
+<div>        <button class="niceButton" onclick="restartGame()">RESTART</button> </div>
+    </div>
+
     <table class="game-board">
         <!--HERE THE TABLE IS INJECTED BY JS-->
     </table>
-    <button onclick="restartGame()">Restart Game</button>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
 </body>
